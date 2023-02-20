@@ -1,0 +1,62 @@
+a {
+    /* this removes the line under our links */
+    text-decoration: none;
+    color: rebeccapurple;
+}
+  
+ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+}
+
+.header {
+    display: flex;
+}
+
+.container1 {
+    display: flex;
+    background-color: aqua;
+    justify-content: space-around;
+}
+
+button {
+    width: 120px;
+    height: 80px;
+    border-radius: 10px;
+    color: rgb(255, 0, 170);
+    border-color: rgb(255, 94, 0);
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    gap: 52px;
+    background-color: blue;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 32px;
+  }
+
+img {
+    width: 200px;
+    height: 200px;
+  }
+
+.container3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    padding: 100px;
+}
