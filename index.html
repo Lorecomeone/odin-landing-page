@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Loot and Roll</title>
     <link rel="stylesheet" href="stylelanding.css">
 
 <!--fav-icon-->
@@ -17,7 +17,57 @@
 
 </head>
 <body>
-    
+  
+      <script type="text/javascript">
+      // Initialize total damage to 0
+      let totalDamage = 0;
+
+      // Function to calculate average damage per turn
+      function calculateDamage() {
+        // Ask user for dice rolled damage
+        while (true) {
+          let diceInput = prompt("Enter the number and type of dice to roll (e.g. 2d6) or type 'done' when finished: ");
+          if (diceInput === "done") {
+            break;
+          }
+          let diceInfo = diceInput.split("d");
+          let diceNum = parseInt(diceInfo[0]);
+          let diceFaces = parseInt(diceInfo[1]);
+          for (let i = 0; i < diceNum; i++) {
+            let roll = Math.floor(Math.random() * diceFaces) + 1;
+            totalDamage += roll;
+            console.log("Rolled a " + roll);
+          }
+        }
+
+        // Ask user for static damage
+        while (true) {
+          let staticDamage = prompt("Enter the static damage or type 'done' when finished: ");
+          if (staticDamage === "done") {
+            break;
+          }
+          totalDamage += parseInt(staticDamage);
+        }
+
+        // Ask user for number of turns
+        let numTurns = prompt("How many turns do you want to make the calculation for? ");
+
+        // Convert inputs to integers
+        numTurns = parseInt(numTurns);
+
+        // Calculate total damage
+        totalDamage *= numTurns;
+
+        // Calculate average damage per turn
+        let averageDamage = totalDamage / numTurns;
+
+        // Display results on webpage
+        document.getElementById("averageDamage").innerHTML = "The average damage per turn is: " + averageDamage;
+        document.getElementById("totalDamage").innerHTML = "The total damage is: " + totalDamage;
+
+      }
+    </script>
+
     <!--blog section-->
       <section id="blog">
 
@@ -28,7 +78,7 @@
         </ul>
         <ul class="right-links">
           <li><a href="#">Build</a></li>
-          <li><a href="#">Damage Calculator</a></li>
+          <li><a href="#">Collabora</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
@@ -38,10 +88,15 @@
         <div class="left">
         <h2 class="text">Tutte cose su D&D!</h2>
         <div class="test">Il portale dedicato a Dungeons & Dragons 5e, con notizie, guide, build, tips sia per giocatori che per master e tantissimo contenuto per creare la vostra migliore campagna!</div>
-        <button class="singup">Sing up</button>
+        <button class="singup">Iscriviti alla Newsletter</button>
         </div>
-        <div class="right">
-            <img src="./images/5.jpg" alt="party">
+          <div class="dmg">
+            <h2 class="text">Calcola il tuo danno per turno!</h2>
+            <div class="text">Inserisci il tuo danno per turno, inizialmente tira i dadi, per esempio 4d6, 2d8 e poi inserisci il danno statico. Il risultato sarà la media effettiva del danno e il danno realizzato in quel turno tirando i dadi</div>
+            <!--<p id="averageDamage" class="tooltip"></p>
+            <p id="totalDamage" class="tooltip"></p>-->
+            <button onclick="calculateDamage()" class="singup">Damage Calculator</button>
+          </div>
         </div>
     </div>
     <!--blog container-2-->

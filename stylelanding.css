@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0px;
   }
   
   *{
@@ -35,6 +36,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     margin-top: 25px;
+    margin-left: 10px;
   }
   
   /* Right links in Header */
@@ -44,6 +46,8 @@ body {
     list-style: none;
     font-size: 16px;
     margin-top: 20px;
+    margin-right: 30px;
+    font-weight: 500;
   }
   
   /* Style for each link in Header */
@@ -62,9 +66,10 @@ body {
   /* Container 1 */
   .container1 {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 20px;
+    gap: 20px;
     background-color: #1F2937;
     color: #F9FAF8;
   }
@@ -74,21 +79,24 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    max-width: 800px;
+    /* margin-left: -220px; */
   }
   
   /* Right side of Container 1 */
-  .container1 .right {
+  .container1 .dmg {
     display: flex;
-    justify-content: flex-end;
-    margin-left: 20px;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
   }
   
-  .container1 .right img {
+  /*.container1 .right img {
     height: 200px;
     width: 350px;
     border: 1px solid #e66102;
     border-radius: 10px;
-  }
+  } */
 
   /* Sign Up Button */
 .singup {
@@ -179,7 +187,21 @@ body {
     }
   }
   @media (max-width: 850px) { 
-    .container1 .left {
+    .container1 .left, .dmg {
       align-items: center;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .header {
+      flex-direction: column;
+      flex: 1;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .header .right-links, .left-links {
+      margin: 3px;
     }
   }
